@@ -59,7 +59,7 @@ module.exports = {
     },
     devServer: {
         host: 'localhost',
-        port: 3030,
+        port: 3040,
         contentBase: __dirname + '/src'
     }
 }

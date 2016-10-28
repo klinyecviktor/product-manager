@@ -5,14 +5,20 @@ import { createStore } from 'redux';
 import { Router, browserHistory } from 'react-router';
 import routes from './routes/routes';
 import reducers from './reducers';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
+function todos(state = [], action) {
+    switch (action.type) {
+        case 'ADD_TODO':
+            return state.concat([ action.text ])
+        default:
+            return state
+    }
+}
+
+console.log(typeof todos, todos !== 'function');
 
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-
-const store = createStore(reducers);
+const store = createStore(todos);
 
 render(
     <Provider store={store}>

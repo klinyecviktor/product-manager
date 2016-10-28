@@ -1,5 +1,5 @@
 import React from 'react';
-import Bar from 'material-ui/AppBar';
+import Bar from 'material-ui/Test';
 
 export default class AppBar extends React.Component {
 
