@@ -1,11 +1,12 @@
 var webpack = require('webpack');
+const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
 var Promise = require('es6-promise').Promise;
 
 if (!global.Promise)
     global.Promise = Promise;
 
-module.exports = {
+let options = {
     entry: __dirname + '/src/main.js',
     output: {
         path: __dirname + '/src',
@@ -62,4 +63,8 @@ module.exports = {
         port: 3040,
         contentBase: __dirname + '/src'
     }
-}
+};
+
+options.target = webpackTargetElectronRenderer(options);
+
+module.exports = options;
